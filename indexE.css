@@ -1,0 +1,62 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: url('img/back.jpeg');
+    
+}
+
+section {
+    border: 1px solid #b9b8b8;
+    text-align: left;
+    border-radius: 20px;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    background-color: #ffffff;
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+section::-webkit-scrollbar {
+    width: 0.5em; /* Define a largura da barra de rolagem */
+}
+
+section::-webkit-scrollbar-track {
+    background-color: transparent; /* Define a cor de fundo da área de rastreamento */
+}
+
+section::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Define a cor da alça da barra de rolagem */
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 100%;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: 700;
+}
+
+.btn {
+    margin-right: 10px;
+}

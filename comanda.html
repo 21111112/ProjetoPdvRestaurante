@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="comanda.css">
+    <link rel="stylesheet" href="comanda.js">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Comanda</title>
+  </head>
+ 
+ 
+    
+     
+    <form action="cardapio01.html" onsubmit="return passarDados()"></form>
+    <form action="comanda.html" onsubmit="return passarDados()"></form>
+
+    
+   
+  </head>
+  <section>
+ 
+  <body>
+    <h1 class="comanda01">Comanda</h1>
+    <div class="comanda">
+    <u id="comanda-lista">
+      
+
+      
+      <!-- lista de itens da comanda será exibida aqui -->
+    </u>
+    <p class="total" id="preco-total"></p>
+  </div>
+
+
+    <script>
+      // lê o valor do cookie "comanda"
+      const comandaJSON = document.cookie.replace(/(?:(?:^|.*;\s*)comanda\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+      // converte a string JSON em um objeto JavaScript
+      const comanda = JSON.parse(comandaJSON);
+
+      // exibe os itens da comanda na página
+      const comandaLista = document.getElementById('comanda-lista');
+      for (let item of comanda.itens) {
+        const li = document.createElement('li');
+        const imagem = document.createElement('img');
+        imagem.src = item.foto;
+        const nome = document.createElement('span');
+        nome.textContent = item.nome;
+        const preco = document.createElement('span');
+        preco.textContent = item.preco.toFixed(2);
+        const botaoRemover = document.createElement('button');
+       
+        li.appendChild(nome);
+        
+      
+        comandaLista.appendChild(li);
+      }
+
+      // exibe o preço total da comanda na página
+      
+      const precoTotal = document.getElementById('preco-total');
+       precoTotal.textContent = `Total: R$ ${comanda.precoTotal.toFixed(2)}`;
+
+  
+  
+
+      // função para atualizar a lista de itens da comanda e o preço total na página
+      function atualizarComanda() {
+        
+       
+        const comandaLista = document.getElementById('comanda-lista');
+        comandaLista.innerHTML = '';
+        for (let item of comanda.itens) {
+        
+         
+
+
+        }
+       
+      
+
+        const precoTotal = document.getElementById('preco-total');
+        precoTotal.textContent = `Total: R$ ${comanda.precoTotal.toFixed(2)}`;
+      
+       
+      }
+      
+   
+    
+      function passarDados() {
+      // Obtém os valores de nome e telefone dos campos de entrada
+      var nome = document.getElementById('nome').value;
+      var telefone = document.getElementById('telefone').value;
+      
+      // Armazena os valores em localStorage (ou você pode usar sessionStorage ou cookies)
+      localStorage.setItem('nome', nome);
+      localStorage.setItem('telefone', telefone);
+      
+      // Retorna true para permitir o envio do formulário
+      return true;
+  }
+   
+    </script>
+  
+  <button onclick="alert('Em construção')">Finalizar</button>
+
+
+  <script>
+    function fecharJanela() {
+      window.open('');
+      window.close();
+    }
+ 
+ 
+</script>
+</section>
+
+</body>
+</html>

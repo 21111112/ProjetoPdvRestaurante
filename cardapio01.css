@@ -1,0 +1,149 @@
+
+      body{
+        margin: 0;
+        font-size: 20px;
+        font-family: Arial;
+      }
+
+      header{
+        background-color: #eee;
+        padding: 30px;
+        text-align: center;
+      }
+
+      nav{
+        overflow: hidden;
+        background-color: #222;
+      }
+
+      nav a{
+        float: left;
+        color: #eee;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      nav a:hover{
+        background-color: #ddd;
+        color: #000;
+      }
+
+
+      .fixo {
+        position: fixed;
+        top: 0px;
+        width: 100%;
+      }
+
+
+      .cardapio {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .prato {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+      }
+
+      .prato img {
+        max-width: 100px;
+        margin-right: 20px;
+      }
+
+      .prato h3 {
+        margin: 0;
+      }
+
+      .prato button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 4px 2px;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        border-radius: 8px;
+      }
+
+      .prato button:hover {
+        background-color: #3e8e41;
+      }
+
+      /* Estilos para a comanda */
+      .comanda {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+      }
+
+      .item button {
+        background-color: #f44336;
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 4px 2px;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        border-radius: 8px;
+      }
+
+      .item button:hover {
+        background-color: #d32f2f;
+      }
+
+      /* Estilos para o total */
+      .total {
+        font-weight: bold;
+        margin-top: 20px;
+        text-align: right;
+      }
+
+      /* Estilos para o botão de pagar */
+      .pagar {
+        text-align: right;
+        margin-top: 20px;
+      }
+
+      .pagar button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 4px 2px;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        border-radius: 8px;
+      }
+
+      .pagar button:hover {
+        background-color: #3e8e41;
+      }

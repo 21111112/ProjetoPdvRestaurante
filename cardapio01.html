@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Cardápio Digital</title>
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/general/style.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="cardapio01.css">
+    
+
+  </head>
+  <body>
+
+    <h1 align="center">Cardápio Digital</h1>
+
+    <h2>Dados do Cliente</h2>
+    <p>Nome: <h id="nomeExibido"></h></p>
+    <p>Telefone: <span id="telefoneExibido"></span></p>
+
+
+    <script>
+        // Obtém os valores de nome e telefone armazenados em localStorage
+        var nome = localStorage.getItem('nome');
+        var fone = localStorage.getItem('fone');
+        
+        // Exibe os valores nas respectivas áreas de exibição
+        document.getElementById('nomeExibido').textContent = nome;
+        document.getElementById('telefoneExibido').textContent = fone;
+        
+        // Limpa os dados armazenados em localStorage
+        localStorage.removeItem('nome');
+        localStorage.removeItem('fone');
+    </script>
+
+<nav>
+  <a href="#pratos">Pratos</a>
+  <a href="#bebidas">Bebidas</a>
+  <a href="#sobremesas">Sobremesas</a>
+  <a href="#drinks">Drinks</a>
+</nav>
+
+    <h2 id="pratos">Pratos</h2>
+    <ul class="cardapio">
+      <li class="prato">
+      <img src="img/fettuccine.jpg" alt="Foto do prato">
+      <div>
+        <h3>Fettuccine</h3>
+        <p>Descrição do prato 1.</p>
+        <p>Preço: R$ 39,90</p>
+        <button class="adicionar-prato" data-nome="Fettuccine" data-preco="39.90">Adicionar</button>
+      </div>
+    </li>
+  
+    <li class="prato">
+      <img src="img/camarão.jpg" alt="Foto do prato">
+      <div>
+        <h3>Camarão</h3>
+        <p>Descrição do prato 2.</p>
+        <p>Preço: R$ 75,00</p>
+        <button class="adicionar-prato" data-nome="Camarão" data-preco="75.00">Adicionar</button>
+      </div>
+    </li>
+  
+    <li class="prato">
+      <img src="img/pf.jpeg" alt="Foto do prato">
+      <div>
+        <h3>Prato Feito</h3>
+        <p>Descrição do prato 2.</p>
+        <p>Preço: R$ 25,00</p>
+        <button class="adicionar-prato" data-nome="Prato Feito" data-preco="25.00">Adicionar</button>
+      </div>
+    </li>
+
+    <h2 id="bebidas">Bebidas</h2>
+      <li class="prato">
+      <img src="img/sucos.jpg" alt="Foto do prato">
+      <div>
+        <h3>Sucos</h3>
+        <p>Descrição: 500ml</p>
+        <p>Preço: R$ 12,90</p>
+        <button class="adicionar-prato" data-nome="Sucos" data-preco="12.90">Adicionar</button>
+      </div>
+    </li>
+  
+    <li class="prato">
+      <img src="img/refrigerante.jpg" alt="Foto do prato">
+      <div>
+        <h3>Refrigerantes</h3>
+        <p>Descrição: 600ml</p>
+        <p>Preço: R$ 9,90</p>
+        <button class="adicionar-prato" data-nome="Refrigerantes" data-preco="9.90">Adicionar</button>
+      </div>
+    </li>
+  
+    <li class="prato">
+      <img src="img/cervejas.jpg" alt="Foto do prato">
+      <div>
+        <h3>Cervejas</h3>
+        <p>Descrição: <br>Chopp 300ml </p>
+        <p>Preço: R$ 15,00</p>
+        <button class="adicionar-prato" data-nome="Cervejas" data-preco="15.00">Adicionar</button>
+      </div>
+    </li>
+
+    <h2 id="sobremesas">Sobremesas</h2>
+      <li class="prato">
+      <img src="img/tiramisu-2.jpg" alt="Foto do prato">
+      <div>
+        <h3>Tiramisu</h3>
+        <p>Descrição: 250g</p>
+        <p>Preço: R$ 26,00</p>
+        <button class="adicionar-prato" data-nome="Tiramisu" data-preco="26.00">Adicionar</button>
+      </div>
+    </li>
+    <li class="prato">
+      <img src="img/petit-gateau-3_25092018203008.jpg" alt="Foto do prato">
+      <div>
+        <h3>Petit Gateau</h3>
+        <p>Descrição: 240g</p>
+        <p>Preço: R$ 16,99</p>
+        <button class="adicionar-prato" data-nome="Petit Gateau" data-preco="16.99">Adicionar</button>
+      </div>
+    </li>
+    <li class="prato">
+      <img src="img/cremebrulee.jpg" alt="Foto do prato">
+      <div>
+        <h3>Creme Brulee</h3>
+        <p>Descrição: 142g</p>
+        <p>Preço: R$ 28,00</p>
+        <button class="adicionar-prato" data-nome="Creme Brulee" data-preco="28.00">Adicionar</button>
+      </div>
+    </li>
+
+    <h2 id="drinks">Drinks</h2>
+    <li class="prato">
+    <img src="img/cosmopolitan_1200x1200.jpg" alt="Foto do prato">
+    <div>
+      <h3>Cosmopolitan</h3>
+      <p>Descrição: 100ml</p>
+      <p>Preço: R$ 38,20</p>
+      <button class="adicionar-prato" data-nome="Cosmopolitan" data-preco="38.20">Adicionar</button>
+    </div>
+
+    <li class="prato">
+      <img src="img/negroni.jpg" alt="Foto do prato">
+      <div>
+        <h3>Negroni</h3>
+        <p>Descrição: 100ml</p>
+        <p>Preço: R$ 29,99</p>
+        <button class="adicionar-prato" data-nome="Negroni" data-preco="29.99">Adicionar</button>
+      </div>
+
+      <li class="prato">
+        <img src="img/manhattan.jpg" alt="Foto do prato">
+        <div>
+          <h3>Manhattan</h3>
+          <p>Descrição: 90ml</p>
+          <p>Preço: R$ 30,00</p>
+          <button class="adicionar-prato" data-nome="Negroni" data-preco="30.00">Adicionar</button>
+        </div>
+
+        
+     <!-- adicione mais pratos aqui -->
+  </ul>
+  
+  <h2>Valor</h2>
+  <ul class="comanda">
+    <!-- os itens adicionados serão exibidos aqui -->
+  </ul>
+  
+  <div class="total">Total: R$ 0,00</div>
+  
+  <div class="pagar">
+    <button id="pagar-btn">Pagar</button>
+  </div>
+  
+  <script>
+    // seleciona os elementos relevantes do HTML
+    const adicionarPratoBotoes = document.querySelectorAll('.adicionar-prato');
+    const comandaLista = document.querySelector('.comanda');
+    const pagarBotao = document.querySelector('#pagar-btn');
+    const totalElemento = document.querySelector('.total');
+  
+    // armazena os itens adicionados e o preço total
+    let itens = [];
+    let precoTotal = 0;
+  
+    // atualiza a lista de itens da comanda e o preço total
+    function atualizarComanda() {
+      // limpa a lista de itens da comanda
+      comandaLista.innerHTML = '';
+  
+      // adiciona cada item à lista de itens da comanda
+      itens.forEach(item => {
+        const itemElemento = document.createElement('li');
+        itemElemento.classList.add('item');
+        itemElemento.innerHTML = `
+          <div>
+            <span>${item.nome}</span>
+            <span>${item.preco}</span>
+          </div>
+          <button class="remover-item" data-nome="${item.nome}" data-preco="${item.preco}">Remover</button>
+        `;
+        comandaLista.appendChild(itemElemento);
+      });
+  
+      // atualiza o preço total
+      totalElemento.textContent = `Total: R$ ${precoTotal.toFixed(2)}`;
+    }
+  
+    // adiciona um item à lista de itens da comanda e atualiza a lista
+    function adicionarItem(nome, preco) {
+      itens.push({ nome, preco });
+      precoTotal += preco;
+      atualizarComanda();
+    }
+  
+    // remove um item da lista de itens da comanda e atualiza a lista
+    function removerItem(nome, preco) {
+      itens = itens.filter(item => item.nome !== nome || item.preco !== preco);
+      precoTotal -= preco;
+      atualizarComanda();
+    }
+  
+    // adiciona um ouvinte de eventos para cada botão "Adicionar" no cardápio
+    adicionarPratoBotoes.forEach(botao => {
+      botao.addEventListener
+      ('click', () => {
+const nome = botao.dataset.nome;
+const preco = parseFloat(botao.dataset.preco);
+adicionarItem(nome, preco);
+});
+});
+
+  // adiciona um ouvinte de eventos para cada botão "Remover" na comanda
+  comandaLista.addEventListener('click', evento => {
+    if (evento.target.classList.contains('remover-item')) {
+      const nome = evento.target.dataset.nome;
+      const preco = parseFloat(evento.target.dataset.preco);
+      removerItem(nome, preco);
+    }
+  });
+
+  // adiciona um ouvinte de eventos para o botão "Pagar"
+  pagarBotao.addEventListener('click', () => {
+    // cria um objeto com os itens adicionados e o preço total
+    const dados = { itens, precoTotal };
+
+    // converte o objeto em uma string JSON
+    const dadosJSON = JSON.stringify(dados);
+
+    // salva a string JSON em um cookie com nome "comanda"
+    document.cookie = `comanda=${dadosJSON}`;
+
+    // redireciona o usuário para a página "comanda.html"
+    window.location.href = 'comanda.html';
+  });
+
+
+  // fixar menu no topo
+  const nav=document.getElementsByTagName("nav")[0];
+  const topoNav=nav.offsetTop;
+
+window.onscroll=function(){
+  fixar();
+}
+
+  function fixar(){
+    if(window.pageYOffset >= topoNav){
+      nav.classList.add("fixo");
+    }
+    else{
+      nav.classList.remove("fixo");
+    }
+  }
+</script>
+</body>
+</html>

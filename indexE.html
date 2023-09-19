@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Produtos</title>
+    <link rel="stylesheet" href="indexE.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="indexE.css">
+</head>
+
+<body>
+    <section>
+    <div class="container">
+        <h1>Gerenciador de Estoque</h1>
+
+        <form id="estoqueForm">
+            <input type="hidden" id="estoqueId">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="val">Validade:</label>
+                <input type="date" id="val" class="form-control" step="0.01" required>
+            </div>
+            <button type="submit" class="btn btn-success">Salvar</button>
+        </form>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Validade</th>
+                    <th>         </th>
+                </tr>
+            </thead>
+            <tbody id="estoqueTable">
+            </tbody>
+        </table>
+    </div>
+</section>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        const API_URL = 'http://localhost:3000/estoque';
+
+        const estoqueForm = document.getElementById('estoqueForm');
+        const estoqueIdInput = document.getElementById('estoqueId');
+        const nomeInput = document.getElementById('nome');
+        const valInput = document.getElementById('val');
+        const estoqueTable = document.getElementById('estoqueTable');
+
+        estoqueForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const estoqueId = estoqueIdInput.value;
+            const nome = nomeInput.value;
+            const val = valInput.value;
+
+            if (estoqueId) {
+                await fetch(API_URL + '/' + estoqueId, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ nome, val })
+                });
+            } else {
+                await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ nome, val })
+                });
+            }
+
+            resetForm();
+            await loadEstoque();
+        });
+
+        function resetForm() {
+            estoqueIdInput.value = '';
+            nomeInput.value = '';
+            valInput.value = '';
+        }
+
+
+        async function loadEstoque() {
+            const response = await fetch(API_URL);
+            const estoque = await response.json();
+
+            let html = '';
+            for (const item of estoque) {
+                const val = new Date(item.val);
+
+                if (!isNaN(val)) {
+                    html += `
+                        <tr>
+                            <td>${item.id}</td>
+                            <td>${item.nome}</td>
+                            <td>${val.toISOString().split('T')[0]}</td> 
+                            <td>
+                                <button onclick="editEstoque(${item.id})" class="btn btn-sm btn-primary">Editar</button>
+                                <button onclick="deleteEstoque(${item.id})" class="btn btn-sm btn-danger">Excluir</button>
+                            </td>
+                        </tr>
+                    `;
+                } else {
+                    console.error('Value of validade is not a number');
+                }
+            }
+            estoqueTable.innerHTML = html;
+        }
+
+        async function editEstoque(id) {
+            const response = await fetch(API_URL + '/' + id);
+            const estoque = await response.json();
+            estoqueIdInput.value = estoque.id;
+            nomeInput.value = estoque.nome;
+            valInput.value = estoque.val;
+        }
+
+        async function deleteEstoque(id) {
+            await fetch(API_URL + '/' + id, {
+                method: 'DELETE'
+            });
+
+            await loadEstoque();
+        }
+
+        loadEstoque();
+    </script>
+</body>
+
+</html>
